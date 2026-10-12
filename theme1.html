@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The Sweet 17th Celebration of Alisha Putri Maharani 🎉✨</title>
+    
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Canvas-Confetti CDN for Celebration Bursts -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#334155',    /* Slate 700 */
+                            secondary: '#94A3B8',  /* Slate 400 */
+                            bg: '#F8FAFC',         /* Slate 50 */
+                            surface: '#FFFFFF',
+                            dark: '#0F172A',       /* Slate 900 */
+                            accent: '#E2E8F0',     /* Slate 200 */
+                            rosegold: '#E0A9AF',   /* Rose Gold Glow */
+                            rosegoldDark: '#C97D87',
+                            pastelPink: '#FDF2F4',
+                            pastelPurple: '#F5F3FF',
+                            pastelBlue: '#F0F9FF'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(148, 163, 184, 0.18)',
+                        'glow': '0 0 25px rgba(224, 169, 175, 0.45)',
+                        'luxury': '0 20px 40px -15px rgba(51, 65, 85, 0.12)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth transitions & custom animations */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .font-serif-luxury {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .glass-card-subtle {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        /* Envelope 3D Fold Styles */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+
+        .flap-open {
+            transform: rotateX(180deg);
+            transform-origin: top;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .flap-closed {
+            transform: rotateX(0deg);
+            transform-origin: top;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Vinyl Spin Animation */
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spinSlow 5s linear infinite;
+        }
+        .paused {
+            animation-play-state: paused;
+        }
+
+        /* Floating effect */
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+        .animate-float {
+            animation: gentleFloat 4s ease-in-out infinite;
+        }
+
+        /* Shimmer gradient for accents */
+        .shimmer-text {
+            background: linear-gradient(135deg, #334155 0%, #C97D87 50%, #334155 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8FAFC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen selection:bg-brand-rosegold selection:text-white">
+
+    <!-- OVERLAY ENVELOPE COVER (MODAL AWAL) -->
+    <div id="envelopeOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-brand-dark/80 backdrop-blur-md p-4 transition-all duration-1000">
+        <!-- Floating Ambient Glow behind Envelope -->
+        <div class="absolute w-72 h-72 md:w-96 md:h-96 rounded-full bg-brand-rosegold/30 blur-3xl pointer-events-none"></div>
+
+        <div class="relative w-full max-w-md perspective-1000">
+            <!-- Envelope Body Container -->
+            <div id="envelopeWrapper" class="relative bg-white rounded-3xl shadow-2xl p-6 md:p-8 border border-white/60 text-center overflow-hidden transition-all duration-700 transform scale-100">
+                
+                <!-- Decorative Top Ribbon Pattern -->
+                <div class="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-brand-pastelPink via-brand-rosegold to-brand-pastelPurple"></div>
+                
+                <!-- Subtitle / Eyebrow -->
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-pastelPink text-brand-rosegoldDark text-xs font-semibold uppercase tracking-wider mb-3">
+                    <span class="animate-pulse">✨</span> Exclusive Invitation <span class="animate-pulse">✨</span>
+                </div>
+
+                <!-- Milestone Badge -->
+                <h3 class="font-serif-luxury text-3xl md:text-4xl text-brand-primary tracking-wide mb-1">
+                    The Sweet 17th
+                </h3>
+                <h1 class="font-serif-luxury text-4xl md:text-5xl font-bold shimmer-text mb-4">
+                    Alisha Putri M.
+                </h1>
+
+                <!-- Envelope Illustration & Wax Seal Style -->
+                <div class="relative my-6 mx-auto w-40 h-28 bg-gradient-to-b from-slate-100 to-slate-200 rounded-2xl border-2 border-dashed border-brand-secondary/40 flex flex-col items-center justify-center shadow-inner group">
+                    <div class="text-4xl animate-bounce">💌</div>
+                    <span class="text-[11px] font-medium text-brand-secondary mt-1 tracking-widest uppercase">Special Delivery</span>
+                </div>
+
+                <!-- Personalized Guest Name Box (?to=NamaTamu) -->
+                <div class="bg-brand-bg/80 border border-brand-accent rounded-2xl p-4 mb-6 shadow-sm">
+                    <p class="text-xs uppercase font-medium text-brand-secondary tracking-widest mb-1">Kepada Yth. Tamu Istimewa:</p>
+                    <h2 id="guestNameCover" class="text-xl md:text-2xl font-bold text-brand-dark tracking-tight">
+                        Tamu Terhormat
+                    </h2>
+                    <p class="text-[11px] text-slate-500 mt-1 italic font-serif">
+                        "Kami sangat menantikan kehadiran & senyum ceriamu! 🎉"
+                    </p>
+                </div>
+
+                <!-- Open Invitation Button -->
+                <button id="btnOpenInvitation" onclick="openInvitationExperience()" class="w-full relative group overflow-hidden py-3.5 px-6 rounded-2xl bg-gradient-to-r from-brand-primary via-slate-800 to-brand-primary text-white font-semibold text-sm tracking-wide shadow-lg hover:shadow-glow transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <span>BUKA UNDANGAN</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-brand-rosegold to-brand-rosegoldDark opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+
+                <p class="text-[10px] text-brand-secondary mt-3">
+                    Ketuk untuk membuka kartu & memutar musik pesta 🎶
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN INVITATION APPLICATION CONTAINER -->
+    <div id="mainContent" class="opacity-0 transition-opacity duration-1000 min-h-screen flex flex-col items-center">
+        
+        <!-- Max width wrapper styled as an ultra-luxury mobile screen / magazine center on desktop -->
+        <main class="w-full max-w-xl min-h-screen bg-brand-surface shadow-luxury relative pb-28 border-x border-slate-200/60 overflow-hidden">
+            
+            <!-- Sticky Top Header Bar -->
+            <header class="sticky top-0 z-30 glass-card px-5 py-3.5 flex items-center justify-between border-b border-slate-200/50">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-brand-pastelPink flex items-center justify-center text-sm shadow-sm">
+                        🌸
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-widest font-bold text-brand-rosegoldDark">Alisha's 17th</span>
+                        <p class="text-[10px] text-slate-400">Sweet Seventeen Party 🎉</p>
+                    </div>
+                </div>
+                <!-- Guest Pill Indicator -->
+                <div class="text-right">
+                    <span id="guestBadgeHeader" class="inline-block bg-brand-bg text-brand-primary text-xs font-semibold px-2.5 py-1 rounded-full border border-slate-200">
+                        Halo, Tamu! 👋
+                    </span>
+                </div>
+            </header>
+
+            <!-- HERO SECTION -->
+            <section class="relative px-6 pt-10 pb-8 text-center overflow-hidden">
+                <!-- Ambient Backdrop Elements -->
+                <div class="absolute -top-12 -left-12 w-48 h-48 rounded-full bg-brand-pastelPink/80 blur-2xl pointer-events-none"></div>
+                <div class="absolute top-1/4 -right-12 w-48 h-48 rounded-full bg-brand-pastelPurple/80 blur-2xl pointer-events-none"></div>
+                
+                <!-- Top Ribbon -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-pastelPink/90 border border-brand-rosegold/30 text-brand-rosegoldDark text-xs font-bold tracking-wider uppercase mb-5 animate-float shadow-sm">
+                    <span>👑</span> THE CELEBRATION OF SWEET SEVENTEEN <span>✨</span>
+                </div>
+
+                <!-- Main Typographic Headline -->
+                <h2 class="text-xs tracking-[0.35em] text-brand-secondary font-semibold uppercase mb-2">
+                    You Are Cordially Invited To
+                </h2>
+                
+                <h1 class="font-serif-luxury text-5xl sm:text-6xl font-bold text-brand-dark tracking-tight leading-none mb-3">
+                    Alisha Putri<br/>
+                    <span class="shimmer-text italic font-normal">Maharani</span>
+                </h1>
+
+                <!-- 17th Milestone Emblem -->
+                <div class="inline-flex items-center justify-center my-3">
+                    <div class="flex items-center gap-3 px-5 py-2 rounded-2xl bg-gradient-to-r from-brand-pastelPink via-white to-brand-pastelPurple border border-brand-rosegold/40 shadow-sm">
+                        <span class="text-2xl">✨</span>
+                        <div class="text-left">
+                            <span class="block text-[10px] uppercase tracking-widest text-slate-400 font-bold">Turning</span>
+                            <span class="font-serif-luxury text-2xl font-bold text-brand-primary leading-tight">17 Years Old</span>
+                        </div>
+                        <span class="text-2xl">🎂</span>
+                    </div>
+                </div>
+
+                <!-- Opening Quote -->
+                <div class="max-w-md mx-auto my-5 p-4 rounded-2xl glass-card-subtle border border-slate-100">
+                    <p class="font-serif-luxury italic text-lg text-brand-primary leading-relaxed">
+                        “Merayakan lembaran baru penuh kilau, cinta, dan tawa bersama orang tersayang.”
+                    </p>
+                    <div class="w-12 h-0.5 bg-brand-rosegold/60 mx-auto mt-2 rounded-full"></div>
+                </div>
+
+                <!-- Quick Date Badge -->
+                <div class="flex items-center justify-center gap-2 text-sm text-brand-primary font-medium">
+                    <span class="flex h-2.5 w-2.5 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500"></span>
+                    </span>
+                    <span>Sabtu, 24 Oktober 2026 • 18:30 WIB</span>
+                </div>
+            </section>
+
+            <!-- COUNTDOWN TIMER SECTION -->
+            <section class="px-6 py-6">
+                <div class="glass-card rounded-3xl p-6 border border-slate-200/70 shadow-glass text-center relative overflow-hidden">
+                    <div class="absolute -right-8 -bottom-8 w-28 h-28 bg-brand-rosegold/10 rounded-full blur-xl pointer-events-none"></div>
+
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <span class="text-base">⏳</span>
+                        <h3 class="text-xs uppercase font-bold tracking-widest text-brand-primary">
+                            Hitung Mundur Pesta Paling Dinanti
+                        </h3>
+                        <span class="text-base">🎉</span>
+                    </div>
+
+                    <!-- 4 Grid Countdown Numbers -->
+                    <div class="grid grid-cols-4 gap-2.5 sm:gap-4 mb-5">
+                        <!-- Days -->
+                        <div class="bg-gradient-to-b from-white to-slate-50 border border-slate-200/80 rounded-2xl p-3 shadow-sm transform hover:-translate-y-1 transition-transform">
+                            <span id="timerDays" class="block font-serif-luxury text-3xl sm:text-4xl font-bold text-brand-primary leading-none">
+                                00
+                            </span>
+                            <span class="text-[10px] uppercase tracking-wider font-semibold text-brand-secondary mt-1 block">
+                                Hari
+                            </span>
+                        </div>
+                        <!-- Hours -->
+                        <div class="bg-gradient-to-b from-white to-slate-50 border border-slate-200/80 rounded-2xl p-3 shadow-sm transform hover:-translate-y-1 transition-transform">
+                            <span id="timerHours" class="block font-serif-luxury text-3xl sm:text-4xl font-bold text-brand-primary leading-none">
+                                00
+                            </span>
+                            <span class="text-[10px] uppercase tracking-wider font-semibold text-brand-secondary mt-1 block">
+                                Jam
+                            </span>
+                        </div>
+                        <!-- Minutes -->
+                        <div class="bg-gradient-to-b from-white to-slate-50 border border-slate-200/80 rounded-2xl p-3 shadow-sm transform hover:-translate-y-1 transition-transform">
+                            <span id="timerMins" class="block font-serif-luxury text-3xl sm:text-4xl font-bold text-brand-primary leading-none">
+                                00
+                            </span>
+                            <span class="text-[10px] uppercase tracking-wider font-semibold text-brand-secondary mt-1 block">
+                                Menit
+                            </span>
+                        </div>
+                        <!-- Seconds -->
+                        <div class="bg-gradient-to-b from-white to-slate-50 border border-slate-200/80 rounded-2xl p-3 shadow-sm transform hover:-translate-y-1 transition-transform">
+                            <span id="timerSecs" class="block font-serif-luxury text-3xl sm:text-4xl font-bold text-brand-rosegoldDark leading-none">
+                                00
+                            </span>
+                            <span class="text-[10px] uppercase tracking-wider font-semibold text-brand-secondary mt-1 block">
+                                Detik
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Save to Calendar Button -->
+                    <a id="btnSaveCalendar" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 active:scale-98 transition-all shadow-md">
+                        <svg class="w-4 h-4 text-brand-rosegold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span>SIMPAN JADWAL KE GOOGLE CALENDAR 📅</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- EVENT DETAILS & DRESS CODE -->
+            <section class="px-6 py-4 space-y-4">
+                
+                <!-- Main Schedule Card -->
+                <div class="glass-card rounded-3xl p-6 border border-slate-200/80 shadow-sm relative overflow-hidden">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="text-[11px] uppercase tracking-widest font-bold text-brand-rosegoldDark">Waktu & Tanggal Acara</span>
+                            <h3 class="font-serif-luxury text-2xl font-bold text-brand-dark mt-1">Sabtu Malam Spesial</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-pastelPink flex items-center justify-center text-2xl shadow-inner">
+                            🎈
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-4 border-t border-slate-100 space-y-3">
+                        <div class="flex items-center gap-3 text-sm text-slate-700">
+                            <span class="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600">🗓️</span>
+                            <div>
+                                <p class="font-semibold text-slate-900">24 Oktober 2026</p>
+                                <p class="text-xs text-slate-500">Malam Minggu / Weekend Party</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-sm text-slate-700">
+                            <span class="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600">⏰</span>
+                            <div>
+                                <p class="font-semibold text-slate-900">18:30 WIB - Selesai</p>
+                                <p class="text-xs text-slate-500">Pintu ballroom dibuka tepat pukul 18:30 WIB</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-sm text-slate-700">
+                            <span class="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600">📍</span>
+                            <div>
+                                <p class="font-semibold text-slate-900">The Glass House Sky Lounge</p>
+                                <p class="text-xs text-slate-500">Grand Ballroom Lt. 12 (Skyline View)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dress Code Guide Card -->
+                <div class="glass-card rounded-3xl p-6 border border-slate-200/80 shadow-sm">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xl">👗</span>
+                            <h4 class="font-bold text-sm tracking-wide text-brand-dark">DRESS CODE ACARA</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-brand-rosegoldDark bg-brand-pastelPink px-2.5 py-0.5 rounded-full">
+                            Wajib Cantik & Keren!
+                        </span>
+                    </div>
+
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Kenakan outfit terbaikmu dengan tema: 
+                        <strong class="text-brand-dark">"Glamorous Pastel & Touch of Rose Gold"</strong> untuk melengkapi semarak malam keemasan Alisha! ✨
+                    </p>
+
+                    <!-- Color Swatches Visual -->
+                    <div class="flex items-center justify-between gap-2 p-3 bg-brand-bg rounded-2xl border border-slate-200/60">
+                        <div class="flex items-center gap-2 text-center flex-1 flex-col">
+                            <div class="w-8 h-8 rounded-full bg-[#FCE7F3] border-2 border-white shadow-sm ring-1 ring-slate-200"></div>
+                            <span class="text-[10px] text-slate-500 font-medium">Soft Pink</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-center flex-1 flex-col">
+                            <div class="w-8 h-8 rounded-full bg-[#E0A9AF] border-2 border-white shadow-sm ring-2 ring-brand-rosegold"></div>
+                            <span class="text-[10px] text-brand-rosegoldDark font-bold">Rose Gold</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-center flex-1 flex-col">
+                            <div class="w-8 h-8 rounded-full bg-[#EDE9FE] border-2 border-white shadow-sm ring-1 ring-slate-200"></div>
+                            <span class="text-[10px] text-slate-500 font-medium">Lilac</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-center flex-1 flex-col">
+                            <div class="w-8 h-8 rounded-full bg-[#E0F2FE] border-2 border-white shadow-sm ring-1 ring-slate-200"></div>
+                            <span class="text-[10px] text-slate-500 font-medium">Sky Blue</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-center flex-1 flex-col">
+                            <div class="w-8 h-8 rounded-full bg-[#FEF3C7] border-2 border-white shadow-sm ring-1 ring-slate-200"></div>
+                            <span class="text-[10px] text-slate-500 font-medium">Champagne</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RUNDOWN ACARA TIMELINE -->
+            <section class="px-6 py-6">
+                <div class="text-center mb-6">
+                    <span class="text-xs uppercase tracking-widest font-bold text-brand-secondary">Susunan Kemeriahan</span>
+                    <h3 class="font-serif-luxury text-3xl font-bold text-brand-primary mt-1">Party Rundown 🥳</h3>
+                    <p class="text-xs text-slate-500 mt-1">Rangkaian momen seru & berharga sepanjang malam</p>
+                </div>
+
+                <div class="relative pl-6 space-y-6 before:absolute before:left-2 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-brand-rosegold before:via-brand-secondary/40 before:to-brand-primary/20">
+                    
+                    <!-- Rundown Item 1 -->
+                    <div class="relative group">
+                        <div class="absolute -left-[27px] top-1.5 w-6 h-6 rounded-full bg-white border-2 border-brand-rosegold flex items-center justify-center text-[10px] shadow-sm group-hover:scale-110 transition-transform">
+                            📸
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 border border-slate-200/80 shadow-sm transition-all group-hover:border-brand-rosegold/60">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs font-bold text-brand-rosegoldDark">18.30 - 19.00 WIB</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">Welcoming</span>
+                            </div>
+                            <h4 class="font-bold text-sm text-brand-dark">Welcoming Guests & Red Carpet Photo</h4>
+                            <p class="text-xs text-slate-500 mt-1">Registrasi tamu, mocktail bar sambutan, dan sesi foto eksklusif di photobooth mewah.</p>
+                        </div>
+                    </div>
+
+                    <!-- Rundown Item 2 -->
+                    <div class="relative group">
+                        <div class="absolute -left-[27px] top-1.5 w-6 h-6 rounded-full bg-white border-2 border-brand-primary flex items-center justify-center text-[10px] shadow-sm group-hover:scale-110 transition-transform">
+                            🎬
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 border border-slate-200/80 shadow-sm transition-all group-hover:border-brand-rosegold/60">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs font-bold text-brand-primary">19.00 - 19.30 WIB</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">Opening</span>
+                            </div>
+                            <h4 class="font-bold text-sm text-brand-dark">Grand Entrance & Video Journey</h4>
+                            <p class="text-xs text-slate-500 mt-1">Pembukaan megah oleh MC, pemutaran film kilas balik kenangan manis 17 tahun Alisha.</p>
+                        </div>
+                    </div>
+
+                    <!-- Rundown Item 3 -->
+                    <div class="relative group">
+                        <div class="absolute -left-[27px] top-1.5 w-6 h-6 rounded-full bg-white border-2 border-brand-rosegold flex items-center justify-center text-[10px] shadow-sm group-hover:scale-110 transition-transform">
+                            🎂
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 border border-slate-200/80 shadow-sm transition-all group-hover:border-brand-rosegold/60">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs font-bold text-brand-rosegoldDark">19.30 - 20.00 WIB</span>
+                                <span class="text-[10px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded-full font-medium font-bold">Main Highlight ⭐</span>
+                            </div>
+                            <h4 class="font-bold text-sm text-brand-dark">Tiup Lilin, Potong Kue & 17 Wishes</h4>
+                            <p class="text-xs text-slate-500 mt-1">Momen puncak tiup lilin bersama keluarga & sahabat, penyerahan potongan kue kehormatan.</p>
+                        </div>
+                    </div>
+
+                    <!-- Rundown Item 4 -->
+                    <div class="relative group">
+                        <div class="absolute -left-[27px] top-1.5 w-6 h-6 rounded-full bg-white border-2 border-brand-primary flex items-center justify-center text-[10px] shadow-sm group-hover:scale-110 transition-transform">
+                            🍽️
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 border border-slate-200/80 shadow-sm transition-all group-hover:border-brand-rosegold/60">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs font-bold text-brand-primary">20.00 - 21.00 WIB</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">Dinner</span>
+                            </div>
+                            <h4 class="font-bold text-sm text-brand-dark">Dinner Banquet & Live Acoustic Band</h4>
+                            <p class="text-xs text-slate-500 mt-1">Santap malam lezat dengan menu istimewa diiringi alunan merdu akustik live lounge.</p>
+                        </div>
+                    </div>
+
+                    <!-- Rundown Item 5 -->
+                    <div class="relative group">
+                        <div class="absolute -left-[27px] top-1.5 w-6 h-6 rounded-full bg-white border-2 border-brand-rosegold flex items-center justify-center text-[10px] shadow-sm group-hover:scale-110 transition-transform">
+                            🎁
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 border border-slate-200/80 shadow-sm transition-all group-hover:border-brand-rosegold/60">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs font-bold text-brand-rosegoldDark">21.00 - 22.00 WIB</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">Finale</span>
+                            </div>
+                            <h4 class="font-bold text-sm text-brand-dark">Fun Party Games, Doorprize & Photo Session</h4>
+                            <p class="text-xs text-slate-500 mt-1">Games heboh berhadiah menarik, pembagian doorprize, dan foto bersama di akhir acara! 🎉</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- LOCATION & GOOGLE MAPS INTEGRATION -->
+            <section class="px-6 py-6">
+                <div class="glass-card rounded-3xl p-6 border border-slate-200/80 shadow-glass">
+                    <div class="text-center mb-4">
+                        <span class="text-[11px] uppercase tracking-widest font-bold text-brand-rosegoldDark">Petunjuk Lokasi Acara</span>
+                        <h3 class="font-serif-luxury text-2xl font-bold text-brand-dark mt-1">The Glass House Sky Lounge</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Grand Ballroom Lt. 12</p>
+                    </div>
+
+                    <!-- Map Simulation / Visual Container -->
+                    <div class="relative w-full h-52 rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100 group">
+                        <!-- Embedded Responsive Google Maps iframe centered on prominent venue location -->
+                        <iframe 
+                            title="Venue Location Map"
+                            class="w-full h-full border-0 filter contrast-105" 
+                            src="https://maps.google.com/maps?q=Grand+Ballroom+Sky+Lounge&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+
+                        <!-- Map Overlay Label -->
+                        <div class="absolute bottom-2 left-2 right-2 bg-white/95 backdrop-blur-md rounded-xl p-2.5 flex items-center justify-between text-xs border border-white/60 shadow-sm">
+                            <div class="flex items-center gap-2 overflow-hidden">
+                                <span class="text-base">📍</span>
+                                <p class="truncate font-medium text-slate-800 text-[11px]">The Glass House Sky Lounge (Lt. 12)</p>
+                            </div>
+                            <span class="text-[10px] text-brand-rosegoldDark font-bold whitespace-nowrap">Valet Parking Ready 🚗</span>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Action Buttons -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                        <a href="https://maps.google.com/?q=The+Glass+House+Sky+Lounge+Grand+Ballroom+Lt.+12" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 active:scale-98 transition-all shadow-sm">
+                            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Buka Google Maps 🗺️</span>
+                        </a>
+
+                        <button onclick="shareVenueLocation()" class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white border border-slate-300 text-slate-700 text-xs font-semibold hover:bg-slate-50 active:scale-98 transition-all shadow-sm">
+                            <svg class="w-4 h-4 text-brand-rosegoldDark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                            <span>Bagikan Lokasi</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DIGITAL ENVELOPE / WEDDING & BIRTHDAY GIFT SECTION -->
+            <section class="px-6 py-6">
+                <div class="glass-card rounded-3xl p-6 border border-slate-200/80 shadow-glass text-center relative overflow-hidden">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-pastelPink text-brand-rosegoldDark text-xs font-bold tracking-wider uppercase mb-2">
+                        <span>🎁</span> Tanda Kasih & Hadiah <span>✨</span>
+                    </div>
+
+                    <h3 class="font-serif-luxury text-2xl font-bold text-brand-dark mb-1">
+                        Amplop Digital untuk Alisha
+                    </h3>
+                    <p class="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed mb-6">
+                        Kehadiran & doa restu tulus Anda adalah hadiah terindah. Namun bila Anda ingin memberikan tanda kasih berupa kado digital, dapat disalurkan melalui rekening berikut:
+                    </p>
+
+                    <!-- Bank Accounts Container -->
+                    <div class="space-y-4 text-left">
+                        
+                        <!-- Bank BCA Card -->
+                        <div class="p-4 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-md relative overflow-hidden">
+                            <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-white/5 rounded-full blur-lg"></div>
+                            
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="font-bold tracking-wider text-sm text-blue-300">BANK BCA</span>
+                                <span class="text-xs bg-white/10 px-2 py-0.5 rounded text-slate-200 font-mono">014</span>
+                            </div>
+
+                            <p class="text-[11px] text-slate-400 uppercase tracking-widest">Nomor Rekening</p>
+                            <p class="font-mono text-lg font-bold tracking-wider text-white mt-0.5">8735091244</p>
+                            <p class="text-xs text-slate-300 mt-1">a.n Alisha</p>
+
+                            <button onclick="copyToClipboard('8735091244', 'Nomor Rekening BCA')" class="mt-3 w-full py-2 px-3 rounded-xl bg-white/15 hover:bg-white/25 active:scale-98 text-xs font-semibold text-white flex items-center justify-center gap-2 transition-all border border-white/20">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                <span>Salin No. Rekening BCA 📋</span>
+                            </button>
+                        </div>
+
+                        <!-- Bank Mandiri Card -->
+                        <div class="p-4 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-700 text-white shadow-md relative overflow-hidden">
+                            <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-white/5 rounded-full blur-lg"></div>
+
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="font-bold tracking-wider text-sm text-amber-300">BANK MANDIRI</span>
+                                <span class="text-xs bg-white/10 px-2 py-0.5 rounded text-slate-200 font-mono">008</span>
+                            </div>
+
+                            <p class="text-[11px] text-slate-400 uppercase tracking-widest">Nomor Rekening</p>
+                            <p class="font-mono text-lg font-bold tracking-wider text-white mt-0.5">1320098412891</p>
+                            <p class="text-xs text-slate-300 mt-1">a.n Alisha</p>
+
+                            <button onclick="copyToClipboard('1320098412891', 'Nomor Rekening Mandiri')" class="mt-3 w-full py-2 px-3 rounded-xl bg-white/15 hover:bg-white/25 active:scale-98 text-xs font-semibold text-white flex items-center justify-center gap-2 transition-all border border-white/20">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                <span>Salin No. Rekening Mandiri 📋</span>
+                            </button>
+                        </div>
+
+                        <!-- QRIS Barcode Card Accordion -->
+                        <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm text-center">
+                            <span class="text-xs font-bold text-slate-800 uppercase tracking-wider block mb-1">QRIS Hadiah & Dompet Digital</span>
+                            <p class="text-[11px] text-slate-500 mb-3">Bisa scan dari GoPay, OVO, ShopeePay, Dana, & Seluruh Mobile Banking</p>
+                            
+                            <!-- Stylized QR SVG Placeholder -->
+                            <div class="w-44 h-44 mx-auto p-2 bg-white rounded-xl border border-slate-200 shadow-inner flex flex-col items-center justify-center">
+                                <svg class="w-36 h-36 text-slate-900" viewBox="0 0 100 100" fill="currentColor">
+                                    <!-- QR code pattern representation -->
+                                    <path d="M10 10h30v30H10V10zm5 5v20h20V15H15zm5 5h10v10H20V20zM60 10h30v30H60V10zm5 5v20h20V15H65zm5 5h10v10H70V20zM10 60h30v30H10V60zm5 5v20h20V65H15zm5 5h10v10H20V70zM60 60h10v10H60V60zm20 0h10v10H80V60zm-10 10h10v10H70V70zm20 10h10v10H90V80zm-30 0h10v10H60V80zm10 10h10v10H70V90zm10-10h10v10H80V80z"/>
+                                    <circle cx="50" cy="50" r="8" fill="#E0A9AF"/>
+                                </svg>
+                                <span class="text-[9px] font-bold text-brand-rosegoldDark mt-1">QRIS ALISHA SWEET 17TH</span>
+                            </div>
+
+                            <p class="text-[10px] text-slate-400 mt-2 italic">Terima kasih banyak atas kasih dan ketulusan Anda! 💖</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- RSVP FORM SECTION -->
+            <section id="rsvpSection" class="px-6 py-6">
+                <div class="glass-card rounded-3xl p-6 border border-slate-200/80 shadow-glass">
+                    <div class="text-center mb-5">
+                        <span class="text-xs uppercase tracking-widest font-bold text-brand-rosegoldDark">Konfirmasi Kehadiran</span>
+                        <h3 class="font-serif-luxury text-3xl font-bold text-brand-dark mt-1">RSVP & Ucapan 💌</h3>
+                        <p class="text-xs text-slate-500 mt-1">Mohon konfirmasi agar kami dapat mempersiapkan jamuan terbaik untukmu!</p>
+                    </div>
+
+                    <form id="rsvpForm" onsubmit="handleRsvpSubmit(event)" class="space-y-4">
+                        <!-- Nama Lengkap -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1" for="inputName">
+                                Nama Lengkap
+                            </label>
+                            <input 
+                                type="text" 
+                                id="inputName" 
+                                required 
+                                placeholder="Tuliskan nama Anda..."
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-rosegold/50 focus:bg-white transition-all">
+                        </div>
+
+                        <!-- Jumlah Tamu -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1" for="inputPax">
+                                Jumlah Orang Yang Hadir
+                            </label>
+                            <select 
+                                id="inputPax" 
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-rosegold/50 focus:bg-white transition-all text-slate-700">
+                                <option value="1">1 Orang (Hanya Saya)</option>
+                                <option value="2">2 Orang (Bersama Pasangan / Teman)</option>
+                                <option value="3">3 Orang (Maksimal)</option>
+                            </select>
+                        </div>
+
+                        <!-- Status Kehadiran Radio -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
+                                Kepastian Hadir
+                            </label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="attendance" value="Hadir" checked class="peer sr-only">
+                                    <div class="p-3 rounded-xl border border-slate-200 bg-white text-center peer-checked:border-emerald-500 peer-checked:bg-emerald-50/50 peer-checked:text-emerald-700 text-xs font-semibold transition-all">
+                                        <span class="block text-base mb-1">🎉</span>
+                                        Ya, Saya Pasti Hadir!
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="attendance" value="Berhalangan" class="peer sr-only">
+                                    <div class="p-3 rounded-xl border border-slate-200 bg-white text-center peer-checked:border-rose-400 peer-checked:bg-rose-50/50 peer-checked:text-rose-700 text-xs font-semibold transition-all">
+                                        <span class="block text-base mb-1">🥺</span>
+                                        Maaf, Berhalangan
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Doa & Ucapan -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1" for="inputWishes">
+                                Pesan Doa & Ucapan Ulang Tahun
+                            </label>
+                            <textarea 
+                                id="inputWishes" 
+                                rows="3" 
+                                required
+                                placeholder="Tuliskan harapan & doa terbaikmu untuk Alisha yang berulang tahun ke-17..." 
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-rosegold/50 focus:bg-white transition-all resize-none"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit" 
+                            class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-brand-primary via-slate-800 to-brand-primary text-white text-sm font-bold tracking-wide shadow-md hover:shadow-glow transition-all active:scale-98 flex items-center justify-center gap-2">
+                            <span>KIRIM KONFIRMASI & UCAPAN</span>
+                            <span class="text-base">🚀</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- GUESTBOOK WISHES FEED -->
+            <section class="px-6 py-4">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-2">
+                        <span class="text-lg">💬</span>
+                        <h4 class="font-bold text-sm text-brand-dark">Buku Tamu & Ucapan Manis</h4>
+                    </div>
+                    <span id="wishesCountBadge" class="text-[11px] font-semibold bg-brand-pastelPink text-brand-rosegoldDark px-2.5 py-0.5 rounded-full">
+                        6 Pesan Masuk
+                    </span>
+                </div>
+
+                <!-- Wishes Feed List (Stored in localStorage + Preloaded) -->
+                <div id="wishesListContainer" class="space-y-3 max-h-96 overflow-y-auto pr-1">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </section>
+
+            <!-- FOOTER CLOSING REMARKS -->
+            <footer class="mt-8 px-6 text-center space-y-4">
+                <div class="w-16 h-0.5 bg-brand-rosegold/40 mx-auto rounded-full"></div>
+                
+                <h3 class="font-serif-luxury text-3xl font-bold text-brand-primary">
+                    Sampai Jumpa di Pesta! 🎉
+                </h3>
+                
+                <p class="text-xs text-slate-500 max-w-xs mx-auto leading-relaxed">
+                    Merupakan suatu kehormatan dan kebahagiaan terbesar bagi kami sekeluarga atas kehadiran serta doa restu Anda sekalian.
+                </p>
+
+                <div class="pt-4">
+                    <p class="text-[10px] uppercase tracking-widest text-brand-secondary font-bold">Salam Hangat,</p>
+                    <p class="font-serif-luxury text-xl font-bold text-brand-dark mt-0.5">Alisha Putri Maharani & Keluarga</p>
+                </div>
+
+                <p class="text-[10px] text-slate-400 pt-6">
+                    Designed with luxury & love for Sweet 17th Celebration • 2026
+                </p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- FLOATING MUSIC PLAYER (Vinyl Disc Style) -->
+    <div class="fixed bottom-6 right-5 z-40 flex items-center gap-3">
+        <!-- Floating Disc Play Button -->
+        <button 
+            id="floatingMusicBtn" 
+            onclick="toggleMusicPlayback()" 
+            aria-label="Toggle Background Music"
+            class="relative w-14 h-14 rounded-full bg-slate-900 border-2 border-brand-rosegold shadow-xl flex items-center justify-center text-white transition-all transform hover:scale-105 active:scale-95 group">
+            
+            <!-- Spinning Vinyl Effect -->
+            <div id="musicDisc" class="absolute inset-1 rounded-full border border-slate-700/80 bg-gradient-to-tr from-slate-900 via-slate-800 to-slate-950 flex items-center justify-center animate-spin-slow paused">
+                <!-- Center Vinyl Label -->
+                <div class="w-5 h-5 rounded-full bg-brand-rosegold border border-white/60 flex items-center justify-center">
+                    <div class="w-1.5 h-1.5 rounded-full bg-slate-900"></div>
+                </div>
+            </div>
+
+            <!-- Music Status Icon Overlay -->
+            <div id="musicIconDisplay" class="relative z-10 text-white drop-shadow-md text-xs font-bold">
+                ▶
+            </div>
+            
+            <!-- Sound wave pulse animation when playing -->
+            <span id="musicPulseRing" class="hidden absolute -inset-1 rounded-full border border-brand-rosegold/70 animate-ping pointer-events-none"></span>
+        </button>
+    </div>
+
+    <!-- CUSTOM TOAST NOTIFICATION CONTAINER -->
+    <div id="toastContainer" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none flex flex-col items-center gap-2 w-full max-w-xs px-4"></div>
+
+    <script>
+        /**
+         * PROCEDURAL WEB AUDIO API SYNTHESIZER
+         * Memutar musik Minimalist neo-classical piano / calm acoustic ambient loop
+         * Bebas dari broken mp3 link / CORS policy issue, 100% reliable di semua browser!
+         */
+        class MinimalistAmbientSynth {
+            constructor() {
+                this.audioCtx = null;
+                this.isPlaying = false;
+                this.timerId = null;
+                this.currentChordIndex = 0;
+
+                // Chord progression yang menenangkan & romantis: Fmaj7 -> G6 -> Em7 -> Am7
+                this.chords = [
+                    [174.61, 220.00, 261.63, 329.63, 392.00], // Fmaj7 (F3, A3, C4, E4, G4)
+                    [196.00, 246.94, 293.66, 329.63, 392.00], // G6 (G3, B3, D4, E4, G4)
+                    [164.81, 196.00, 246.94, 293.66, 329.63], // Em7 (E3, G3, B3, D4, E4)
+                    [220.00, 261.63, 329.63, 392.00, 440.00]  // Am7 (A3, C4, E4, G4, A4)
+                ];
+            }
+
+            init() {
+                if (!this.audioCtx) {
+                    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                    this.audioCtx = new AudioContextClass();
+                }
+            }
+
+            playTone(freq, time, duration = 2.2, gainLevel = 0.12) {
+                if (!this.audioCtx) return;
+
+                const osc = this.audioCtx.createOscillator();
+                const gain = this.audioCtx.createGain();
+                const filter = this.audioCtx.createBiquadFilter();
+
+                // Lowpass filter untuk kehangatan piano / acoustic Rhodes tone
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(950, time);
+                filter.frequency.exponentialRampToValueAtTime(320, time + duration);
+
+                // Menggunakan triangle wave untuk nuansa neo-classical piano lembut
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, time);
+
+                // Natural ADSR envelope
+                gain.gain.setValueAtTime(0.0001, time);
+                gain.gain.linearRampToValueAtTime(gainLevel, time + 0.04);
+                gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
+
+                osc.connect(filter);
+                filter.connect(gain);
+                gain.connect(this.audioCtx.destination);
+
+                osc.start(time);
+                osc.stop(time + duration);
+            }
+
+            playChordArpeggio() {
+                if (!this.isPlaying || !this.audioCtx) return;
+
+                const chord = this.chords[this.currentChordIndex];
+                const now = this.audioCtx.currentTime;
+
+                // Mainkan arpeggio acak halus menyerupai petikan tuts piano akustik
+                chord.forEach((noteFreq, idx) => {
+                    const delay = idx * 0.32;
+                    this.playTone(noteFreq, now + delay, 2.5, 0.09);
+                });
+
+                // Tambahkan sentuhan nada tinggi (sparkle piano melody)
+                const highNote = chord[Math.floor(Math.random() * chord.length)] * 2;
+                this.playTone(highNote, now + 1.2, 1.8, 0.04);
+
+                this.currentChordIndex = (this.currentChordIndex + 1) % this.chords.length;
+
+                // Loop setiap 2.4 detik
+                this.timerId = setTimeout(() => {
+                    this.playChordArpeggio();
+                }, 2400);
+            }
+
+            start() {
+                this.init();
+                if (this.audioCtx.state === 'suspended') {
+                    this.audioCtx.resume();
+                }
+                this.isPlaying = true;
+                this.playChordArpeggio();
+            }
+
+            stop() {
+                this.isPlaying = false;
+                if (this.timerId) {
+                    clearTimeout(this.timerId);
+                    this.timerId = null;
+                }
+            }
+        }
+
+        const ambientPlayer = new MinimalistAmbientSynth();
+
+        /**
+         * INITIALIZATION & DATA HELPERS
+         */
+        const EVENT_DATE = new Date("2026-10-24T18:30:00+07:00").getTime(); // Target Waktu Acara
+
+        // Default Sample Wishes
+        const INITIAL_WISHES = [
+            {
+                name: "Kak Nadia Salsabila",
+                attendance: "Hadir",
+                pax: 2,
+                wishes: "Happy 17th Sweet Seventeen Alisha cantiiik! Semoga makin pintar, sukses terus pendidikannya, dan selalu jadi kesayangan semua orang! Can't wait for the party! 💖✨",
+                time: "2 jam yang lalu"
+            },
+            {
+                name: "Dimas Arya & Sarah",
+                attendance: "Hadir",
+                pax: 2,
+                wishes: "Happy sweet seventeen Icaa! 🎂🎉 Semoga tercapai semua cita-cita dan impian besarmu! See you at The Glass House!",
+                time: "5 jam yang lalu"
+            },
+            {
+                name: "Om Hendra & Tante Dewi",
+                attendance: "Hadir",
+                pax: 2,
+                wishes: "Selamat ulang tahun ke-17 keponakan tersayang Alisha. Doa terbaik dari om dan tante sekeluarga, selalu dalam lindungan Tuhan. 🎉🎈",
+                time: "1 hari yang lalu"
+            },
+            {
+                name: "Reva Anandita",
+                attendance: "Hadir",
+                pax: 1,
+                wishes: "OMG 17th!! 🥳 Gasabar banget ketemu dresscode pastelnyaa! Happy birthday bestieee! 🌸🥂",
+                time: "1 hari yang lalu"
+            }
+        ];
+
+        // Membaca Parameter URL ?to=NamaTamu atau ?guest=NamaTamu
+        function getGuestNameFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const guest = params.get('to') || params.get('guest');
+            return guest ? guest.trim() : "Tamu Terhormat";
+        }
+
+        // Setup Countdown Timer
+        function initCountdown() {
+            function updateTimer() {
+                const now = new Date().getTime();
+                const distance = EVENT_DATE - now;
+
+                if (distance < 0) {
+                    document.getElementById("timerDays").textContent = "00";
+                    document.getElementById("timerHours").textContent = "00";
+                    document.getElementById("timerMins").textContent = "00";
+                    document.getElementById("timerSecs").textContent = "00";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("timerDays").textContent = String(days).padStart(2, '0');
+                document.getElementById("timerHours").textContent = String(hours).padStart(2, '0');
+                document.getElementById("timerMins").textContent = String(minutes).padStart(2, '0');
+                document.getElementById("timerSecs").textContent = String(seconds).padStart(2, '0');
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+
+        // Generate Google Calendar Link
+        function setupCalendarLink() {
+            const title = encodeURIComponent("The Sweet 17th of Alisha Putri Maharani 🎉✨");
+            const details = encodeURIComponent("Merayakan Ulang Tahun ke-17 Alisha Putri Maharani! Dresscode: Glamorous Pastel & Touch of Rose Gold. Venue: The Glass House Sky Lounge, Lt. 12.");
+            const location = encodeURIComponent("The Glass House Sky Lounge, Grand Ballroom Lt. 12");
+            // 2026-10-24 18:30 WIB = 11:30 UTC. Durasi hingga 22:00 WIB = 15:00 UTC.
+            const dates = "20261024T113000Z/20261024T150000Z";
+            const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
+            
+            const btn = document.getElementById("btnSaveCalendar");
+            if (btn) btn.href = gCalUrl;
+        }
+
+        // Custom Toast Box
+        function showToast(message, emoji = "✨") {
+            const container = document.getElementById("toastContainer");
+            const toast = document.createElement("div");
+            toast.className = "bg-slate-900/95 backdrop-blur-md text-white border border-slate-700 text-xs px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2 transform translate-y-[-20px] opacity-0 transition-all duration-300 pointer-events-auto";
+            toast.innerHTML = `<span class="text-base">${emoji}</span><span class="font-medium">${message}</span>`;
+            
+            container.appendChild(toast);
+            
+            // Animation in
+            requestAnimationFrame(() => {
+                toast.classList.remove("translate-y-[-20px]", "opacity-0");
+                toast.classList.add("translate-y-0", "opacity-100");
+            });
+
+            // Animation out
+            setTimeout(() => {
+                toast.classList.remove("translate-y-0", "opacity-100");
+                toast.classList.add("translate-y-[-20px]", "opacity-0");
+                setTimeout(() => toast.remove(), 400);
+            }, 3200);
+        }
+
+        // Copy Clipboard Helper
+        function copyToClipboard(text, label = "Teks") {
+            try {
+                const tempInput = document.createElement("input");
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                showToast(`${label} berhasil disalin! 📋`, "✅");
+            } catch (err) {
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        showToast(`${label} berhasil disalin! 📋`, "✅");
+                    });
+                }
+            }
+        }
+
+        // Share Venue Location
+        function shareVenueLocation() {
+            const shareText = "Undangan Sweet 17th Alisha di The Glass House Sky Lounge, Lt. 12! Buka peta di sini: https://maps.google.com/?q=The+Glass+House+Sky+Lounge+Grand+Ballroom+Lt.+12";
+            if (navigator.share) {
+                navigator.share({
+                    title: "Lokasi Pesta Sweet 17th Alisha",
+                    text: shareText,
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                copyToClipboard(shareText, "Link lokasi peta");
+            }
+        }
+
+        /**
+         * INTERACTIVE ENVELOPE & AUDIO CONTROLLER
+         */
+        function triggerConfettiBurst() {
+            if (typeof confetti === 'function') {
+                // Festive Rose Gold & Pastel Confetti cannon
+                confetti({
+                    particleCount: 80,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#E0A9AF', '#334155', '#FDF2F4', '#FCD34D', '#A78BFA']
+                });
+
+                setTimeout(() => {
+                    confetti({
+                        particleCount: 50,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 },
+                        colors: ['#E0A9AF', '#FDF2F4', '#38BDF8']
+                    });
+                    confetti({
+                        particleCount: 50,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 },
+                        colors: ['#E0A9AF', '#FDF2F4', '#F472B6']
+                    });
+                }, 300);
+            }
+        }
+
+        function openInvitationExperience() {
+            const overlay = document.getElementById("envelopeOverlay");
+            const mainContent = document.getElementById("mainContent");
+            const disc = document.getElementById("musicDisc");
+            const icon = document.getElementById("musicIconDisplay");
+            const ring = document.getElementById("musicPulseRing");
+
+            // Confetti Blast 🎉
+            triggerConfettiBurst();
+
+            // Memulai pemutaran musik piano neo-classical
+            ambientPlayer.start();
+            disc.classList.remove("paused");
+            icon.textContent = "⏸";
+            ring.classList.remove("hidden");
+
+            // Animasi menghilang overlay amplop dengan halus
+            overlay.classList.add("opacity-0", "pointer-events-none", "scale-105");
+            setTimeout(() => {
+                overlay.style.display = "none";
+            }, 900);
+
+            // Munculkan konten utama
+            mainContent.classList.remove("opacity-0");
+            mainContent.classList.add("opacity-100");
+
+            showToast("Selamat datang di undangan Alisha! 💖", "🎉");
+        }
+
+        function toggleMusicPlayback() {
+            const disc = document.getElementById("musicDisc");
+            const icon = document.getElementById("musicIconDisplay");
+            const ring = document.getElementById("musicPulseRing");
+
+            if (ambientPlayer.isPlaying) {
+                ambientPlayer.stop();
+                disc.classList.add("paused");
+                icon.textContent = "▶";
+                ring.classList.add("hidden");
+                showToast("Musik dijeda 🔇", "⏸");
+            } else {
+                ambientPlayer.start();
+                disc.classList.remove("paused");
+                icon.textContent = "⏸";
+                ring.classList.remove("hidden");
+                showToast("Memutar alunan piano lembut 🎶", "🎵");
+            }
+        }
+
+        /**
+         * GUESTBOOK & RSVP STORAGE LOGIC
+         */
+        const STORAGE_KEY = 'alisha_sweet17_rsvp_wishes';
+
+        function loadGuestWishes() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            let wishesArray = [];
+            
+            if (stored) {
+                try {
+                    wishesArray = JSON.parse(stored);
+                } catch (e) {
+                    wishesArray = INITIAL_WISHES;
+                }
+            } else {
+                wishesArray = INITIAL_WISHES;
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_WISHES));
+            }
+
+            renderWishesList(wishesArray);
+        }
+
+        function renderWishesList(wishes) {
+            const container = document.getElementById("wishesListContainer");
+            const badge = document.getElementById("wishesCountBadge");
+            container.innerHTML = "";
+
+            badge.textContent = `${wishes.length} Pesan Masuk`;
+
+            wishes.forEach(item => {
+                const card = document.createElement("div");
+                card.className = "p-3.5 rounded-2xl bg-white border border-slate-200/70 shadow-sm flex flex-col gap-1.5 transition-all hover:border-brand-rosegold/40";
+                
+                const isPresent = item.attendance === "Hadir";
+                const badgeColor = isPresent ? "bg-emerald-50 text-emerald-700 border-emerald-200" : "bg-rose-50 text-rose-700 border-rose-200";
+                const badgeText = isPresent ? `Hadir (${item.pax || 1} Pax)` : "Berhalangan";
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 rounded-full bg-brand-pastelPink text-brand-rosegoldDark font-bold text-xs flex items-center justify-center">
+                                ${escapeHtml(item.name.charAt(0).toUpperCase())}
+                            </div>
+                            <span class="font-bold text-xs text-slate-800">${escapeHtml(item.name)}</span>
+                        </div>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full border ${badgeColor} font-semibold">
+                            ${badgeText}
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed pl-9">
+                        "${escapeHtml(item.wishes)}"
+                    </p>
+                    <span class="text-[9px] text-slate-400 pl-9 font-medium">${item.time || 'Baru saja'}</span>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function escapeHtml(str) {
+            if (!str) return "";
+            return str.replace(/[&<>'"]/g, 
+                tag => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    "'": '&#39;',
+                    '"': '&quot;'
+                }[tag] || tag)
+            );
+        }
+
+        function handleRsvpSubmit(event) {
+            event.preventDefault();
+
+            const nameInput = document.getElementById("inputName");
+            const paxInput = document.getElementById("inputPax");
+            const attendanceInput = document.querySelector('input[name="attendance"]:checked');
+            const wishesInput = document.getElementById("inputWishes");
+
+            const newEntry = {
+                name: nameInput.value.trim(),
+                pax: parseInt(paxInput.value, 10),
+                attendance: attendanceInput.value,
+                wishes: wishesInput.value.trim(),
+                time: "Baru saja"
+            };
+
+            // Simpan ke array
+            const stored = localStorage.getItem(STORAGE_KEY);
+            let wishesArray = stored ? JSON.parse(stored) : [...INITIAL_WISHES];
+            wishesArray.unshift(newEntry);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(wishesArray));
+
+            // Render ulang & beri ledakan konfeti tanda sukses
+            renderWishesList(wishesArray);
+            triggerConfettiBurst();
+
+            // Reset Form & Notifikasi Toast
+            wishesInput.value = "";
+            showToast("Terima kasih! Ucapan & RSVP Anda telah tersimpan 🎉💖", "💌");
+
+            // Scroll halus ke daftar ucapan
+            document.getElementById("wishesListContainer").scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // On Page Load Initialization
+        window.addEventListener("DOMContentLoaded", () => {
+            const guestName = getGuestNameFromUrl();
+
+            // Tampilkan nama tamu pada Cover dan Header Bar
+            document.getElementById("guestNameCover").textContent = guestName;
+            document.getElementById("guestBadgeHeader").textContent = `Halo, ${guestName}! 👋`;
+            
+            // Pre-fill input nama pada form RSVP jika ada
+            if (guestName !== "Tamu Terhormat") {
+                document.getElementById("inputName").value = guestName;
+            }
+
+            initCountdown();
+            setupCalendarLink();
+            loadGuestWishes();
+        });
+    </script>
+</body>
+</html>
